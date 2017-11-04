@@ -11,10 +11,23 @@
     <div id="chat-messages" #chatMessages>
       <label class="center-words">Sunday 05</label>
 
-      <div class="message">
-        <img class="avatar" src="../assets/img/avatar.jpg">
-        <div class="bubble">
-          Really cool stuff!Really cool stuff!Really cool stuff!Really cool stuff!Really cool stuff!Really cool stuff!Really cool stuff!
+      <div class="message" *ngFor="let message of messages" [class.right]="message.position=='right'">
+        <img class="avatar" src="../assets/img/avatar.jpg" *ngIf="message.position=='left'">
+        <img class="avatar" src="../assets/img/2_copy.jpg" *ngIf="message.position=='right'">
+        <div class="bubble" *ngIf="message.data.type=='plain'">
+          {{message.data.content}}
+          <div class="corner"></div>
+        </div>
+        <div class="bubble bare" *ngIf="message.data.type=='text-image'">
+          <div class="text-image">
+            <div class="left-text">
+              <div>
+                <h3>{{message.data.title}}</h3>
+                <p>{{message.data.content}}</p>
+              </div>
+            </div>
+            <div class="right-image" [style.background-image]="'url('+message.data.picUrl+')'"></div>
+          </div>
           <div class="corner"></div>
         </div>
       </div>
