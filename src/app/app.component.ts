@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  recording:boolean=false;
+
+
+  toggleRecord(){
+    this.recording=!this.recording;
+  }
+
 }

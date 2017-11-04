@@ -2,17 +2,17 @@
 <div id="chatbox">
 
   <div id="chatview" class="p1" style="display: block;">
-    <div id="profile" class="animate">
+    <div id="profile">
 
       <div id="close">
         <div class="cy s1 s2 s3"></div>
         <div class="cx s1 s2 s3"></div>
       </div>
 
-      <p class="animate">Miro Badev</p>
+      <p>Miro Badev</p>
       <span>mirobadev@gmail.com</span>
     </div>
-    <div id="chat-messages" class="animate">
+    <div id="chat-messages">
       <label class="center-words">Thursday 02</label>
 
       <div class="message">
@@ -63,8 +63,11 @@
     </div>
 
     <div id="sendmessage">
-      <input type="text" placeholder="Send message...">
-      <button id="send"></button>
+      <!--<input type="text" placeholder="Send message...">-->
+      <!--<button class="send-text"><i class="fa fa-send"></i> </button>-->
+      <button class="button button-3d button-pill record-audio" (click)="toggleRecord()" [class.recording]="recording">
+        <i class="fa fa-microphone"></i>&nbsp;&nbsp;{{recording?'Recording':'Record'}}
+      </button>
     </div>
 
   </div>

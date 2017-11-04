@@ -147,7 +147,7 @@
   input::placeholder{
     color: #aab8c2;
   }
-  button{
+  button.send-text{
     //background: #fff url(../assets/img/send.png) 0 -41px no-repeat;
     width: 30px;
     height: 30px;
@@ -155,5 +155,16 @@
     right: 15px;
     top: 23px;
     border: none;
+  }
+  button.record-audio{
+    width:80%;
+    margin-top: 8px;
+    margin-left: 10%;
+  }
+  button.record-audio.recording{
+    top: 5px;
+    //transition-property: all;
+    //transition-duration: .15s;
+    box-shadow: 0 2px 0 #bbb, 0 3px 3px rgba(0,0,0,.2);
   }
 }
