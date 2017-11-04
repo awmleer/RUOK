@@ -78,16 +78,22 @@ $chatbox-height:600px;
     width: $chatbox-width;
     display: block;
   }
-  .message{
-    padding: 0 0 30px 58px;
+  .message::after{
+    content: " ";
+    display: block;
+    height: 0;
     clear: both;
-    margin-bottom: 45px;
+  }
+  .message{
+    padding: 0 20px 0 60px;
+    margin-bottom: 20px;
+    position: relative;
     img.avatar{
-      float: left;
-      margin-left: -38px;
+      position: absolute;
+      left: 20px;
+      bottom: 0;
       border-radius: 50%;
       width: 30px;
-      margin-top: 12px;
     }
     .bubble{
       background: #f0f4f7;
@@ -98,6 +104,7 @@ $chatbox-height:600px;
       color: #8495a3;
       position: relative;
       float: left;
+      display: block;
       .corner{
         background: url(../assets/img/bubble-corner.png) 0 0 no-repeat;
         position: absolute;
@@ -107,14 +114,32 @@ $chatbox-height:600px;
         bottom: 0;
       }
     }
+    .bubble.bare{
+      padding: 0;
+    }
+    .bubble div.text-image{
+      //display: flex;
+      //flex-direction: column;
+      //width: $chatbox-width*3/4;
+      div.left-text{
+        //flex-grow: 1;
+      }
+      div.right-image{
+        //flex-grow: 0;
+        height:200px;
+        width:130px;
+        background-size: cover;
+        border-top-left-radius: 5px;
+      }
+    }
   }
   .message.right{
-    padding: 0 58px 30px 0;
-    margin-left: 19px;
+    padding: 0 60px 0 0;
+    margin-left: 20px;
     img.avatar{
-      float: right;
-      margin-left: 0;
-      margin-right: -38px;
+      position: absolute;
+      left: auto;
+      right: 20px;
     }
     .bubble{
       float: right;
@@ -126,6 +151,7 @@ $chatbox-height:600px;
       }
     }
   }
+
 }
 
 
