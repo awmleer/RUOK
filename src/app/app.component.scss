@@ -107,10 +107,12 @@ $chatbox-height:600px;
     .bubble.bare{
       padding: 0;
     }
-    .bubble div.text-image{
+    .bubble .text-image{
       display: flex;
       flex-direction: row;
       width: $chatbox-width*3/4;
+      color: inherit;
+      text-decoration: inherit;
       div.left-text{
         box-sizing: border-box;
         padding: 12px 13px;

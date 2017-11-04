@@ -37,6 +37,10 @@ export class AppComponent {
               data:data
             });
           }
+          this.loading=false;
+          setTimeout(()=>{
+            this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
+          },1);
         });
         this.messages.push({
           position:'right',
@@ -45,6 +49,9 @@ export class AppComponent {
             content:res.text()
           }
         });
+        setTimeout(()=>{
+          this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
+        },1);
       });
       this.loading=true;
       this.recording=false;
