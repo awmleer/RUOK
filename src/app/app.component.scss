@@ -118,18 +118,38 @@ $chatbox-height:600px;
       padding: 0;
     }
     .bubble div.text-image{
-      //display: flex;
-      //flex-direction: column;
-      //width: $chatbox-width*3/4;
+      display: flex;
+      flex-direction: row;
+      width: $chatbox-width*3/4;
       div.left-text{
-        //flex-grow: 1;
+        box-sizing: border-box;
+        padding: 12px 13px;
+        flex: auto;
+        height:200px;
+        display: flex;
+        align-items: center;
+        h3{
+          font-size: 20px;
+          margin: 10px 0 2px;
+        }
+        p{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          margin-top: 0;
+          -webkit-line-clamp: 7; /* number of lines to show */
+          line-height: 1.5em;        /* fallback */
+          max-height: 1.5em*7;       /* fallback */
+        }
       }
       div.right-image{
-        //flex-grow: 0;
+        flex: none;
         height:200px;
         width:130px;
         background-size: cover;
-        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     }
   }
