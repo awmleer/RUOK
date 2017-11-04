@@ -4,16 +4,12 @@
   <div id="chatview" class="p1" style="display: block;">
     <div id="profile">
       <img src="../assets/img/avatar.jpg" class="big-avatar">
-      <!--<div id="close">-->
-      <!--<div class="cy s1 s2 s3"></div>-->
-      <!--<div class="cx s1 s2 s3"></div>-->
-      <!--</div>-->
 
-      <p>Miro Badev</p>
-      <span>mirobadev@gmail.com</span>
+      <p>Mic Chik</p>
+      <span>micchik@gmail.com</span>
     </div>
-    <div id="chat-messages">
-      <label class="center-words">Thursday 02</label>
+    <div id="chat-messages" #chatMessages>
+      <label class="center-words">Sunday 05</label>
 
       <div class="message">
         <img class="avatar" src="../assets/img/avatar.jpg">
@@ -70,7 +66,7 @@
         </div>
       </div>
 
-      <div class="line-scale-pulse-out loader"><div></div><div></div><div></div><div></div><div></div></div>
+      <div *ngIf="loading" class="line-scale-pulse-out loader"><div></div><div></div><div></div><div></div><div></div></div>
 
     </div>
 
