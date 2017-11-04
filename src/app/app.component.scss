@@ -1,21 +1,25 @@
+$chatbox-width:400px;
+$chatbox-height:600px;
+
+
 #chatbox{
-  width: 290px;
+  width: $chatbox-width;
   background: #fff;
   border-radius: 6px;
   overflow: hidden;
-  height: 484px;
+  height: $chatbox-height;
   position: absolute;
-  top: 200px;
+  top: 100px;
   left: 50%;
-  margin-left: -155px;
+  margin-left: - $chatbox-width / 2;
 }
 
 
 #chatview{
   overflow: hidden;
   border-radius: 6px;
-  width: 290px;
-  height: 484px;
+  width: $chatbox-width;
+  height: $chatbox-height;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,18 +28,27 @@
 
 #profile{
   background: #fff url(../assets/img/timeline1.png) 0 0 no-repeat;
-  height: 153px;
+  background-size: cover;
+  height: 200px;
+  width:$chatbox-width;
   overflow: hidden;
   text-align: center;
   color: #fff;
   p{
     font-weight: 600;
     font-size: 15px;
-    margin: 97px 0 -1px;
+    margin: 10px 0 -1px;
   }
   span{
     font-weight: 400;
     font-size: 11px;
+  }
+  img.big-avatar{
+    width: 68px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: inline-block;
+    margin-top: 40px;
   }
 }
 
@@ -49,17 +62,10 @@
   cursor: pointer;
 }
 
-.floatingImg{
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 12px;
-  border: 3px solid #fff;
-}
 
 #chat-messages{
-  width: 290px;
-  height: 270px;
+  width: $chatbox-width;
+  height: $chatbox-height - 200px - 60px;
   overflow-y: scroll;
   overflow-x: hidden;
   padding-right: 20px;
@@ -69,7 +75,7 @@
     font-size: 12px;
     text-align: center;
     margin: 15px 0;
-    width: 290px;
+    width: $chatbox-width;
     display: block;
   }
   .message{
@@ -132,7 +138,7 @@
   position: absolute;
   bottom: 0;
   right: 0px;
-  width: 290px;
+  width: $chatbox-width;
   background: #fff;
   input{
     background: #fff;
@@ -157,9 +163,9 @@
     border: none;
   }
   button.record-audio{
-    width:80%;
+    width:60%;
     margin-top: 8px;
-    margin-left: 10%;
+    margin-left: 20%;
   }
   button.record-audio.recording{
     top: 5px;
