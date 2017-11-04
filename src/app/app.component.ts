@@ -17,13 +17,12 @@ export class AppComponent {
 
   toggleRecord(){
     if (this.recording) {
-      this.http.get('http://localhost:8000/done/').toPromise().then(() => {
-          this.recording=false;
-      });
+      this.http.get('http://localhost:8000/done/');
+      this.recording=false;
     }else{
       this.http.get('http://localhost:8000/start/').toPromise().then(() => {
-        this.recording=true;
       });
+      this.recording=true;
     }
   }
 
