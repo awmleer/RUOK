@@ -31,6 +31,7 @@ export class AppComponent {
     if (this.recording) {
       this.http.get('http://localhost:8000/interact/stop/').toPromise().then((res) => {
         if (res.text() === '') {
+          this.loading=false;
           return;
         }
         this.http.post('http://localhost:8000/interact/process/',res.text()).toPromise().then((res) => {
