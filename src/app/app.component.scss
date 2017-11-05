@@ -192,12 +192,13 @@ $chatbox-height:600px;
   }
   button.send-text{
     //background: #fff url(../assets/img/send.png) 0 -41px no-repeat;
-    width: 30px;
-    height: 30px;
     position: absolute;
     right: 15px;
-    top: 23px;
+    top: 12px;
     border: none;
+    i{
+      color: #aab8c2;
+    }
   }
   button.record-audio{
     width:60%;

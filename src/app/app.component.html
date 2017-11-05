@@ -2,6 +2,11 @@
 <div id="chatbox">
 
   <div id="chatview" class="p1" style="display: block;">
+
+    <button class="button button-small button-plain button-borderless" style="position: absolute;right: 10px;top: 10px;" (click)="toggleInputMethod()">
+      <i class="fa fa-bars" style="color: #8495a3;"></i>
+    </button>
+
     <div id="profile">
       <img src="../assets/img/avatar.jpg" class="big-avatar">
 
@@ -89,9 +94,11 @@
     </div>
 
     <div id="sendmessage">
-      <!--<input type="text" placeholder="Send message...">-->
-      <!--<button class="send-text"><i class="fa fa-send"></i> </button>-->
-      <button class="button button-3d button-pill record-audio" (click)="toggleRecord()" [class.recording]="recording">
+      <ng-container *ngIf="inputMethod=='text'">
+        <input type="text" placeholder="Send message..." [(ngModel)]="textInputed">
+        <button (click)="textProcess()" class="button button-plain button-borderless send-text"><i class="fa fa-send"></i> </button>
+      </ng-container>
+      <button *ngIf="inputMethod=='audio'" class="button button-3d button-pill record-audio" (click)="toggleRecord()" [class.recording]="recording">
         <i class="fa fa-microphone"></i>&nbsp;&nbsp;{{recording?'Recording':'Record'}}
       </button>
     </div>

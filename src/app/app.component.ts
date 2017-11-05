@@ -10,6 +10,8 @@ import 'rxjs/add/operator/toPromise';
 export class AppComponent {
   title = 'app';
   recording:boolean=false;
+  inputMethod:'audio'|'text'='audio';
+  textInputed:string='';
   loading:boolean=false;
   messages:{
     position:'left'|'right';
@@ -26,6 +28,15 @@ export class AppComponent {
   constructor(
     private http: Http
   ){}
+
+  toggleInputMethod(){
+    this.textInputed='';
+    if (this.inputMethod === 'audio') {
+      this.inputMethod='text';
+    }else{
+      this.inputMethod='audio';
+    }
+  }
 
   toggleRecord(){
     if (this.recording) {
@@ -67,6 +78,34 @@ export class AppComponent {
       });
       this.recording=true;
     }
+  }
+
+
+  textProcess(){
+    this.messages.push({
+      position:'right',
+      data:{
+        type:'plain',
+        content:this.textInputed
+      }
+    });
+    this.loading=true;
+    setTimeout(()=>{
+      this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
+    },1);
+    this.http.post('http://localhost:8000/interact/process/',this.textInputed).toPromise().then((res) => {
+      for (let data of res.json()) {
+        this.messages.push({
+          position:'left',
+          data:data
+        });
+      }
+      this.loading=false;
+      setTimeout(()=>{
+        this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
+      },1);
+    });
+    this.textInputed='';
   }
 
 

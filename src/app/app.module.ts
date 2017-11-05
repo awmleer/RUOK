@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,11 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
