@@ -30,6 +30,9 @@ export class AppComponent {
   toggleRecord(){
     if (this.recording) {
       this.http.get('http://localhost:8000/interact/stop/').toPromise().then((res) => {
+        if (res.text() === '') {
+          return;
+        }
         this.http.post('http://localhost:8000/interact/process/',res.text()).toPromise().then((res) => {
           for (let data of res.json()) {
             this.messages.push({

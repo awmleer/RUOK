@@ -12,72 +12,74 @@
       <label class="center-words">Sunday 05</label>
 
       <div class="message" *ngFor="let message of messages" [class.right]="message.position=='right'">
-        <img class="avatar" src="../assets/img/avatar.jpg" *ngIf="message.position=='left'">
-        <img class="avatar" src="../assets/img/2_copy.jpg" *ngIf="message.position=='right'">
-        <div class="bubble" *ngIf="message.data.type=='plain'">
-          {{message.data.content}}
-          <div class="corner"></div>
-        </div>
-        <div class="bubble bare" *ngIf="message.data.type=='text-image'">
-          <div class="text-image">
-            <div class="left-text">
-              <div>
-                <h3>{{message.data.title}}</h3>
-                <p>{{message.data.content}}</p>
-              </div>
-            </div>
-            <div class="right-image" [style.background-image]="'url('+message.data.picUrl+')'"></div>
+        <ng-container *ngIf="message.data.content">
+          <img class="avatar" src="../assets/img/avatar.jpg" *ngIf="message.position=='left'">
+          <img class="avatar" src="../assets/img/2_copy.jpg" *ngIf="message.position=='right'">
+          <div class="bubble" *ngIf="message.data.type=='plain'">
+            {{message.data.content}}
+            <div class="corner"></div>
           </div>
-          <div class="corner"></div>
-        </div>
-      </div>
-
-      <div class="message right">
-        <img class="avatar" src="../assets/img/2_copy.jpg">
-        <div class="bubble">
-          Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial?
-          <div class="corner"></div>
-        </div>
-      </div>
-
-      <div class="message">
-        <img class="avatar" src="../assets/img/avatar.jpg">
-        <div class="bubble">
-          Yeah, hold on
-          <div class="corner"></div>
-        </div>
-      </div>
-
-      <div class="message right">
-        <img class="avatar" src="../assets/img/2_copy.jpg">
-        <div class="bubble">
-          Can you share a link for the tutorial?
-          <div class="corner"></div>
-        </div>
-      </div>
-
-      <div class="message">
-        <img class="avatar" src="../assets/img/avatar.jpg">
-        <div class="bubble">
-          Yeah, hold on
-          <div class="corner"></div>
-        </div>
-      </div>
-      <div class="message">
-        <img class="avatar" src="../assets/img/avatar.jpg">
-        <div class="bubble bare">
-          <a class="text-image" href="https://img3.doubanio.com/lpic/s29542916.jpg" target="_blank">
-            <div class="left-text">
-              <div>
-                <h3>123</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto assumenda cupiditate doloremque ipsam numquam, odit praesentium tenetur ut velit? Debitis dolor fugiat odit sapiente sit. Inventore iste nostrum perspiciatis.</p>
+          <div class="bubble bare" *ngIf="message.data.type=='text-image'">
+            <a class="text-image" [href]="message.data.url" target="_blank">
+              <div class="left-text">
+                <div>
+                  <h3>{{message.data.title}}</h3>
+                  <p>{{message.data.content}}</p>
+                </div>
               </div>
-            </div>
-            <div class="right-image" [style.background-image]="'url(https://img3.doubanio.com/lpic/s29542916.jpg)'"></div>
-          </a>
-          <div class="corner"></div>
-        </div>
+              <div class="right-image" [style.background-image]="'url('+message.data.picUrl+')'"></div>
+            </a>
+            <div class="corner"></div>
+          </div>
+        </ng-container>
       </div>
+
+      <!--<div class="message right">-->
+      <!--<img class="avatar" src="../assets/img/2_copy.jpg">-->
+      <!--<div class="bubble">-->
+      <!--Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial? Can you share a link for the tutorial?-->
+      <!--<div class="corner"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="message">-->
+      <!--<img class="avatar" src="../assets/img/avatar.jpg">-->
+      <!--<div class="bubble">-->
+      <!--Yeah, hold on-->
+      <!--<div class="corner"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="message right">-->
+      <!--<img class="avatar" src="../assets/img/2_copy.jpg">-->
+      <!--<div class="bubble">-->
+      <!--Can you share a link for the tutorial?-->
+      <!--<div class="corner"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="message">-->
+      <!--<img class="avatar" src="../assets/img/avatar.jpg">-->
+      <!--<div class="bubble">-->
+      <!--Yeah, hold on-->
+      <!--<div class="corner"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="message">-->
+      <!--<img class="avatar" src="../assets/img/avatar.jpg">-->
+      <!--<div class="bubble bare">-->
+      <!--<a class="text-image" href="https://img3.doubanio.com/lpic/s29542916.jpg" target="_blank">-->
+      <!--<div class="left-text">-->
+      <!--<div>-->
+      <!--<h3>123</h3>-->
+      <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto assumenda cupiditate doloremque ipsam numquam, odit praesentium tenetur ut velit? Debitis dolor fugiat odit sapiente sit. Inventore iste nostrum perspiciatis.</p>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="right-image" [style.background-image]="'url(https://img3.doubanio.com/lpic/s29542916.jpg)'"></div>-->
+      <!--</a>-->
+      <!--<div class="corner"></div>-->
+      <!--</div>-->
+      <!--</div>-->
 
       <div *ngIf="loading" class="line-scale-pulse-out loader"><div></div><div></div><div></div><div></div><div></div></div>
 
@@ -92,6 +94,7 @@
     </div>
 
   </div>
+
 
 
 </div>
